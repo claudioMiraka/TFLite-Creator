@@ -49,6 +49,8 @@ class ImageClassifier(object):
         self.interpreter.invoke()
         
         quantization = self.outputDetails[0]['quantization'][0]
+        if self.isFloatingModel:
+            quantization = 1.0
         scores = [ quantization * x for x in self.interpreter.get_tensor(self.outputDetails[0]['index'])[0]]
         
         max_value = max(scores)
@@ -61,8 +63,19 @@ if __name__=="__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--image', help='Full path of image')
+    parser.add_argument('--model', help='Full path of the model')
+    parser.add_argument('--labels', help='Full path of the labels')
 
-    args = parser.parse_args()   
+    args = parser.parse_args()
+
+    labels = LABEL_PATH
+    model = MODEL_PATH
+    if args.labels != None :
+        labels = args.labels
+
+    if args.model != None :
+        model = args.model
+
 
     if args.image != None :
         if not os.path.exists(args.image):
@@ -70,7 +83,7 @@ if __name__=="__main__":
 
         image = cv2.imread(args.image)
 
-        imageClassifier = ImageClassifier()
+        imageClassifier = ImageClassifier(modelPath=model, labelPath=labels)
 
         start_time = time.time()
         res_label, conf = imageClassifier.classifyImage(image)
