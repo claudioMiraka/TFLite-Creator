@@ -64,7 +64,6 @@ if __name__=="__main__":
 
     args = parser.parse_args()   
 
-    #only show detection for one image for debugging
     if args.image != None :
         if not os.path.exists(args.image):
             raise ValueError('Image not found')
@@ -79,9 +78,9 @@ if __name__=="__main__":
 
         label = '%s: %d%%' % (res_label, int(conf*100))
         labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
-        cv2.putText(image, label, (0,labelSize[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+        cv2.putText(image, label, (0,labelSize[1]+30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 0), 2)
 
-        cv2.imshow('Object detector', image)
+        cv2.imshow('Image classifier', image)
 
         if cv2.waitKey(0) & 0xff == 27:
             cv2.destroyAllWindows()
