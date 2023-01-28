@@ -2,7 +2,15 @@ import csv
 import os
 import shutil
 from tqdm import tqdm
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--classes', nargs='+', type=str)
+args = parser.parse_args()
+
+classes = args.classes
+
+print(classes)
 
 src_dir="OID/Dataset/"
 
@@ -30,7 +38,13 @@ with open(object_detection_csv_dst_file, 'w') as csv_dst:
             subdir_path = os.path.join(dir_path, subdir_name)
             label_path = os.path.join(subdir_path, "Label")
 
-            image_classification_class_dst_dir =  os.path.join(image_classification_dst_dir, os.path.basename(subdir_path))
+            label = os.path.basename(subdir_path)
+
+            if label.replace(' ', '_') not in classes:
+                continue
+
+            image_classification_class_dst_dir =  os.path.join(image_classification_dst_dir, label)
+            
             if not os.path.exists(image_classification_class_dst_dir):
                 os.makedirs(image_classification_class_dst_dir)
 
