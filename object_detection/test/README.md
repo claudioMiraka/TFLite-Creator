@@ -1,6 +1,6 @@
-It's ime to test the tf model! 
+It's time to test the tf model! 
 
-- Place the labels.txt here.
-- Place any .tflite file here and rename it model.tflite 
-- run ```python3 detect.py --image path/to/image ```
 
+```python3 detect.py --image path/to/image --model path/to/model --labels path/to/labels ```
+
+![](https://github.com/claudioMiraka/TFLite-Creator/blob/master/media_example/classification.gif)
