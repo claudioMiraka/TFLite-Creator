@@ -6,11 +6,19 @@ This project uses [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/
 
 
 
-### Getting Started
+## Getting Started
 
 Each folder has its own readme file with the instructions. 
 
 - [open_images_colletor](open_images_colletor) will create a data set.
 - [object_detection/train](object_detection/train) will use the data set created to build an object detection model.
 - [image_classifier/train](image_classifier/train) will use the data set created to build an image classifican model.
+
+
+## Example
+
+
+#### Classification Example
+
+<img src="media_example/classification.gif" width="50%" height="70%"/>
 
