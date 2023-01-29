@@ -22,3 +22,8 @@ Each folder has its own readme file with the instructions.
 
 <img src="media_example/classification.gif" width="50%" height="70%"/>
 
+
+#### Objecti Detection Example
+
+<img src="media_example/object_detection.gif" width="50%" height="70%"/>
+
