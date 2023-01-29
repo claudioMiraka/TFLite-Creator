@@ -89,23 +89,16 @@ if __name__=="__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--image', help='Full path of image')
-    parser.add_argument('--threshold', help='Confidence threshold')
+    parser.add_argument('--threshold', help='Confidence threshold',  type=float, default=DEFAULT_THRESHOLD)
 
-    parser.add_argument('--model', help='Full path of the model')
-    parser.add_argument('--labels', help='Full path of the labels')
+    parser.add_argument('--model', help='Full path of the model', default=MODEL_PATH)
+    parser.add_argument('--labels', help='Full path of the labels', default=LABEL_PATH)
 
     args = parser.parse_args()
-
-    labels = LABEL_PATH
-    model = MODEL_PATH
-    confidence = DEFAULT_THRESHOLD
     
-    if args.labels != None :
-        labels = args.labels
-    if args.model != None :
-        model = args.model
-    if args.threshold != None:
-        confidence = args.threshold
+    labels = args.labels
+    model = args.model
+    confidence = args.threshold
 
 
     if args.image != None :
@@ -132,3 +125,6 @@ if __name__=="__main__":
         
         if cv2.waitKey(0) & 0xff == 27:
             cv2.destroyAllWindows()
+    else:
+        parser.print_help()
+        

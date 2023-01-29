@@ -35,7 +35,6 @@ class ImageClassifier(object):
     def classifyImage(self, image):
 
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        imH, imW, _ = image.shape
         image_resized = cv2.resize(image_rgb, (self.inputWidth, self.inputHeight))
         input_data = np.expand_dims(image_resized, axis=0)
         
@@ -63,19 +62,10 @@ if __name__=="__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--image', help='Full path of image')
-    parser.add_argument('--model', help='Full path of the model')
-    parser.add_argument('--labels', help='Full path of the labels')
+    parser.add_argument('--model', help='Full path of the model', default=MODEL_PATH)
+    parser.add_argument('--labels', help='Full path of the labels', default=LABEL_PATH)
 
     args = parser.parse_args()
-
-    labels = LABEL_PATH
-    model = MODEL_PATH
-    if args.labels != None :
-        labels = args.labels
-
-    if args.model != None :
-        model = args.model
-
 
     if args.image != None :
         if not os.path.exists(args.image):
@@ -83,7 +73,7 @@ if __name__=="__main__":
 
         image = cv2.imread(args.image)
 
-        imageClassifier = ImageClassifier(modelPath=model, labelPath=labels)
+        imageClassifier = ImageClassifier(modelPath=args.model, labelPath=args.labels)
 
         start_time = time.time()
         res_label, conf = imageClassifier.classifyImage(image)
