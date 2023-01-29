@@ -20,10 +20,21 @@ Each folder has its own readme file with the instructions.
 
 #### Classification Example
 
+Trained on multiple classes of birds
+
 <img src="media_example/classification.gif" width="50%" height="70%"/>
 
 
 #### Objecti Detection Example
 
+Trained to only reconize birds
+
 <img src="media_example/object_detection.gif" width="50%" height="70%"/>
+
+#### Objecti Detection with Classification Live Camera example Example
+Combination of the above 2 models.
+The object detection model was trained to only reconize only birds. Once a bird is reconized, the image is cropped then passed it to the classification model which was trained to reconize only specific birds (Blue jay, parrot, canary ...).
+This combination gives better results than just training an object detection on those specific type of birds.
+
+<img src="media_example/live_classification_and_detection.gif" width="50%" height="70%"/>
 
