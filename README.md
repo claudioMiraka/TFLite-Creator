@@ -14,6 +14,10 @@ Each folder has its own readme file with the instructions.
 - [object_detection/train](object_detection/train) will use the data set created to build an object detection model.
 - [image_classifier/train](image_classifier/train) will use the data set created to build an image classifican model.
 
+To test the models on PC use  [object_detection/test](object_detection/test) and [image_classifier/test](image_classifier/test); this will generate results like the examples below. 
+
+If you want to test the model on a mobile device checkout [image_classification](https://github.com/tensorflow/examples/tree/master/lite/examples/image_classification) and [object_detection](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection)
+
 
 ## Example
 
