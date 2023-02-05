@@ -4,3 +4,7 @@ awscli
 urllib3
 tqdm
 opencv-python
+matplotlib
+tflite_model_maker
+numpy
+argparse
