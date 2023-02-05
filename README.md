@@ -1,6 +1,6 @@
 # TFLite-Creator
 
-Build ML model that can run on mobile devices without having an ML backgound!
+Build a TF lite model using a large dataset that can run on mobile devices with only few steps!
 
 This project uses [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker) to build models for object detection and image classification and [Open Images Dataset](https://storage.googleapis.com/openimages/web/index.html) to create a data set.
 
@@ -41,4 +41,10 @@ The object detection model was trained to only reconize only birds. Once a bird 
 This combination gives better results than just training an object detection on those specific type of birds.
 
 <img src="media_example/live_classification_and_detection.gif" width="50%" height="70%"/>
+
+## Note
+Tested on Ubuntu and MacOS (Intel processor).
+
+On MacOS with Apple Silicon, training is unsupported; I was unable to install tflite-model-maker (any help is appreciated!!).
+
 
